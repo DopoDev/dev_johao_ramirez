@@ -14,7 +14,10 @@ const posts = (await getCollection("blog")).sort(
 
 <Layout title="Johao Ramirez | Desarrollador de Software | Blog">
   <Hero />
-  <Section title="Experiencia Laboral" className={"bg-gradient-to-b from-black/70 from-[5%] to-black via-black"}>
+  <Section
+    title="Experiencia Laboral"
+    className={"bg-gradient-to-b from-black/70 from-[5%] to-black via-black"}
+  >
     <div class="w-full grid place-items-center">
       <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
         <ExperienceCard
@@ -22,20 +25,26 @@ const posts = (await getCollection("blog")).sort(
           company="Freelance"
           dateRange="Enero 2023 - Presente"
           description="Desarrollo de aplicaciones web y móviles utilizando tecnologías como JavaScript, React, Node.js, y bases de datos SQL y NoSQL. Colaboración con clientes para entender sus necesidades y entregar soluciones personalizadas."
-          techStack={["JavaScript", "React", "Node.js", "Express", "PostgreSQL"]}
+          techStack={[
+            "JavaScript",
+            "React",
+            "Node.js",
+            "Express",
+            "PostgreSQL",
+          ]}
         />
         <ExperienceCard
           title="Desarrollador de Software"
           company="Colegio Real Royal School"
           dateRange="Enero 2025 - Presente"
-          description="Participación en el desarrollo de un sistema de gestión interna utilizando Java y Spring Boot. Colaboración con el equipo de desarrollo para implementar nuevas funcionalidades y mejorar la eficiencia del sistema."
+          description="Desarrollo y mantenimiento de un sistema de gestión escolar utilizando PHP y MySQL. Implementación de nuevas funcionalidades y optimización del rendimiento del sistema para mejorar la experiencia del usuario."
           techStack={["PHP", "JavaScript", "MySQL", "Git"]}
         />
       </div>
     </div>
   </Section>
-  <br>
-  <br>
+  <br />
+  <br />
   <Section
     title="Publicaciones"
     className={"bg-gradient-to-b from-black/70 from-[5%] to-black via-black"}
@@ -68,6 +77,31 @@ const posts = (await getCollection("blog")).sort(
         class="max-w-4xl text-xl md:text-lg opacity-90 text-center justify-evenly"
       >
         <p>{ABOUT_ME}</p>
+      </div>
+    </div>
+  </Section>
+  <Section title="Contacto">
+    <div class="w-full grid place-items-center">
+      <div
+        class="max-w-4xl text-xl md:text-lg opacity-90 text-center justify-evenly"
+      >
+        <p>
+          Si deseas contactarme, puedes enviarme un correo electrónico a
+          <a
+            href="mailto:johaoramirez@gmail.com?subject=Contacto%20desde%20tu%20portafolio&body=Hola%20Johao,"
+            class="text-blue-500 underline"
+          >
+           mi correo electrónico
+          </a>
+          o encontrarme en 
+          <a
+            href="https://www.linkedin.com/in/hernando-ram%C3%ADrez/"
+            class="text-blue-500 underline"
+            target="_blank"
+          >
+            LinkedIn
+          </a>.
+        </p>
       </div>
     </div>
   </Section>
