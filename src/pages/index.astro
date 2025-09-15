@@ -1,0 +1,74 @@
+---
+import { getCollection } from "astro:content";
+import Hero from "@/components/Hero.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Section from "@/components/Section.astro";
+import BlogPostCard from "@/components/BlogPostCard.astro";
+import Layout from "@/layouts/Layout.astro";
+import ExperienceCard from "@/components/ExperienceCard.astro";
+import { KNOWN_TECH, ABOUT_ME } from "@/consts";
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<Layout title="Johao Ramirez | Desarrollador de Software | Blog">
+  <Hero />
+  <Section title="Experiencia Laboral" className={"bg-gradient-to-b from-black/70 from-[5%] to-black via-black"}>
+    <div class="w-full grid place-items-center">
+      <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+        <ExperienceCard
+          title="Desarrollador de Software"
+          company="Freelance"
+          dateRange="Enero 2023 - Presente"
+          description="Desarrollo de aplicaciones web y móviles utilizando tecnologías como JavaScript, React, Node.js, y bases de datos SQL y NoSQL. Colaboración con clientes para entender sus necesidades y entregar soluciones personalizadas."
+          techStack={["JavaScript", "React", "Node.js", "Express", "PostgreSQL"]}
+        />
+        <ExperienceCard
+          title="Desarrollador de Software"
+          company="Colegio Real Royal School"
+          dateRange="Enero 2025 - Presente"
+          description="Participación en el desarrollo de un sistema de gestión interna utilizando Java y Spring Boot. Colaboración con el equipo de desarrollo para implementar nuevas funcionalidades y mejorar la eficiencia del sistema."
+          techStack={["PHP", "JavaScript", "MySQL", "Git"]}
+        />
+      </div>
+    </div>
+  </Section>
+  <br>
+  <br>
+  <Section
+    title="Publicaciones"
+    className={"bg-gradient-to-b from-black/70 from-[5%] to-black via-black"}
+  >
+    <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+      {
+        posts.map((post) => (
+          <BlogPostCard
+            slug={post.id}
+            title={post.data.title}
+            excerpt={post.data.description}
+            date={post.data.pubDate}
+          />
+        ))
+      }
+    </div>
+  </Section>
+  <Section title="Tecnologías que utilizo" full_screen={false}>
+    <div class="w-full grid place-items-center">
+      <div
+        class="w-full gap-4 flex flex-wrap px-3 max-w-xl text-lg justify-center"
+      >
+        {KNOWN_TECH.map((x) => <Breadcrumb title={x} />)}
+      </div>
+    </div>
+  </Section>
+  <Section title="Sobre mi">
+    <div class="w-full grid place-items-center">
+      <div
+        class="max-w-4xl text-xl md:text-lg opacity-90 text-center justify-evenly"
+      >
+        <p>{ABOUT_ME}</p>
+      </div>
+    </div>
+  </Section>
+</Layout>
