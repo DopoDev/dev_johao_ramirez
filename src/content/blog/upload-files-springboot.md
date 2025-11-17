@@ -2,6 +2,7 @@
 title: "Upload files with Spring Boot / Subir imagenes haciendo uso de SpringBoot" 
 description: "Learn how to upload files with Spring Boot / Aprende a subir archivos con Spring Boot"
 pubDate: "Nov 15, 2025"
+githubUrl: "https://github.com/DopoDev/upload_files_spring"
 ---
 # Subir archivos con Spring Boot. (En el servidor)
 En esta guía voy a tratar de explicar cómo se podría subir un archivo al servidor haciendo uso de Spring Boot. En este caso, subiremos imágenes con formato JPG, PNG, JPEG.
